@@ -85,6 +85,7 @@ AUTH_PRIVATE_KEY  # Private key
 HASURA_GRAPHQL_JWT_SECRET  # Public key
 HASURA_GRAPHQL_ADMIN_SECRET # Hasura console password
 ```
+
 For Backend:
 
 ### 3. **Start `Hasura GraphQL server` with docker-compose**
@@ -96,28 +97,18 @@ cd hasura/
 docker-compose up
 ```
 
-If everything goes well, it’ll be up and running on http://localhost:8080/v1/graphql.
-
-### 4. **Start `Hasura console`**
-The `console` will help us automatically create migration and metadata for any change. [Readmore](https://hasura.io/docs/1.0/graphql/core/hasura-cli/hasura_console.html)
-
-Require [Hasura CLI](#requirements)
-
-Open console on another terminal
-```sh
-cd hasura/
-hasura console --admin-secret <HASURA_GRAPHQL_ADMIN_SECRET>
-```
-The console is running on http://localhost:9695.
+This starts graphql-server and hasura console.
+You can access console at http://localhost:8080/console and api at http://localhost:8080/v1/graphql (POST)
 
 For Frontend:
-### 5. **Open another terminal and install dependencies for NextJs application**
+
+### 4. **Open another terminal and install dependencies for NextJs application**
 
 ```sh
 cd nextjs/ && yarn
 ```
 
-### 6. **Create Google client credentials**
+### 5. **Create Google client credentials**
 
 Create a new [Google OAuth Client](https://console.developers.google.com/apis/credentials/oauthclient) and copy the credentials (Client ID and Client Secret) into `.env` file.
 
@@ -133,7 +124,7 @@ http://localhost:3000/api/auth/callback/google
 https://domailname.app/api/auth/callback/google
 ```
 
-### 7. **Start the NextJs application**
+### 6. **Start the NextJs application**
 
 ```sh
 yarn dev
